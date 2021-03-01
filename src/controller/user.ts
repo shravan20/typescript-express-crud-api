@@ -1,16 +1,15 @@
-import * as services from '../services/user';
+import UserService from "@app/services/user";
 
-const getUsers = async (req, res, next) => {
-  
-  try {
-    res.send(await services.getUsers(req.params));
+
+export class UserController {
+  private userService: UserService;
+
+  public constructor(userService: UserService) {
+    this.userService = userService;
   }
-  catch (error) {
-    res.send(error);  
+
+  public getUsers = async () => {
+    return await this.userService.getUsers();
   }
 
-}
-
-export {
-  getUsers
 }
