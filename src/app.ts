@@ -16,7 +16,7 @@ export default class App {
   constructor() {
     this.app = express();
     this.config();
-    this.swaggerSetup();
+    // this.swaggerSetup();
   }
 
   private config(): void {
