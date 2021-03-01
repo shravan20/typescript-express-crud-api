@@ -14,7 +14,6 @@ export default class App {
   constructor() {
     this.app = express();
     this.config();
-    // this.swaggerSetup();
     this.routes.routes(this.app);
 
   }
