@@ -19,9 +19,12 @@
         }
     },
     "include": [
-    "./src/**/*"
+    "./src/**/*",
+    "*"
     ],
     "exclude": [
-        "./dist","./coverage","./node_modules"
+        "./dist",
+        "./coverage",
+        "./node_modules"
     ]
 }
