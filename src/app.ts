@@ -1,6 +1,6 @@
 import morgan from 'morgan';
 import express from "express";
-import userRouter  from "./src/routes/user";
+import { Routes } from '@app/routes';
 import expressRequestId from 'express-request-id';
 const RequestId = expressRequestId();
 import * as bodyParser from 'body-parser';
@@ -28,7 +28,7 @@ export default class App {
   
     const swaggerDefinition = {
       info: {
-          title: 'User Service Swagger API',
+          title: 'TEST - Swagger API',
           version: '1.0.0',
           description: 'API documentation',
       },
@@ -39,7 +39,7 @@ export default class App {
         apis: ['**/*.ts'],
     };
     const swaggerSpec = swaggerJSDoc(options);
-    this.app.use('/user_service/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    this.app.use('/test/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   
   }
 
