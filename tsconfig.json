@@ -1,4 +1,3 @@
-
 {
     "compilerOptions": {
         "outDir": "./dist",
@@ -7,8 +6,12 @@
         "strict": false,
         "module": "commonjs",
         "esModuleInterop": true,
-
-
+        "sourceMap": true,
+        "baseUrl": "./",
+        "paths": {
+            "*": ["./node_modules/*"],
+            "@app/*": ["./app/*"]
+        }
     },
     "include": [
     "./src/**/*"
