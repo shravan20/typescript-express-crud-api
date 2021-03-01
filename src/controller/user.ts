@@ -8,8 +8,8 @@ export class UserController {
     this.userService = userService;
   }
 
-  public getUsers = async () => {
-    return await this.userService.getUsers();
+  public getUsers = async (req,res,next) => {
+    res.status(200).send(await this.userService.getUsers());
   }
 
 }

@@ -4,8 +4,8 @@ import { Routes } from '@app/routes';
 import expressRequestId from 'express-request-id';
 const RequestId = expressRequestId();
 import * as bodyParser from 'body-parser';
-import swaggerJSDoc from 'swagger-jsdoc';
-import swaggerUi from 'swagger-ui-express';
+// import swaggerJSDoc from 'swagger-jsdoc';
+// import swaggerUi from 'swagger-ui-express';
 
 
 export default class App {
@@ -17,6 +17,8 @@ export default class App {
     this.app = express();
     this.config();
     // this.swaggerSetup();
+    this.routes.routes(this.app);
+
   }
 
   private config(): void {
@@ -24,7 +26,7 @@ export default class App {
     this.app.use(morgan('dev'));
   }
 
-  private swaggerSetup(): void {
+ /*  private swaggerSetup(): void {
   
     const swaggerDefinition = {
       info: {
@@ -34,13 +36,13 @@ export default class App {
       },
       host: process.env.APP_HOST,
     };
-    const options = {
-        swaggerDefinition,
-        apis: ['**/*.ts'],
-    };
-    const swaggerSpec = swaggerJSDoc(options);
-    this.app.use('/test/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    const options = { */
+        // swaggerDefinition,
+        // apis: ['**/*.ts'],
+    // };
+    // const swaggerSpec = swaggerJSDoc(options);
+    // this.app.use('/test/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
   
-  }
+  // }
 
 }
