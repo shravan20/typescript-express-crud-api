@@ -2,9 +2,10 @@
     "name": "typescript-express-crud-api",
     "version": "1.0.0",
     "description": "Express Server using Typescript",
-    "main": "app.ts",
+    "main": "server.ts",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "./node_modules/.bin/ts-node -r tsconfig-paths/register server.ts"
     },
     "repository": {
         "type": "git",
@@ -24,16 +25,21 @@
     },
     "homepage": "https://github.com/shravan20/typescript-express-crud-api#readme",
     "dependencies": {
+        "@types/express": "^4.17.6",
+        "@types/express-request-id": "^1.4.1",
+        "@types/morgan": "^1.9.1",
         "body-parser": "^1.19.0",
         "cors": "^2.8.5",
         "express": "^4.17.1",
-        "morgan": "^1.10.0"
+        "express-request-id": "^1.4.1",
+        "morgan": "^1.10.0",
+        "swagger-jsdoc": "^7.0.0-rc.3",
+        "swagger-ui-express": "^4.1.6",
+        "tsconfig-paths": "^3.9.0",
+        "typescript": "^3.9.6"
     },
     "devDependencies": {
-        "@types/express": "^4.17.6",
         "nodemon": "^2.0.4",
-        "ts-node": "^8.10.2",
-        "tslint": "^6.1.2",
-        "typescript": "^3.9.6"
+        "ts-node": "^8.10.2"
     }
 }

@@ -1,14 +1,16 @@
 
+import { UserRepository } from '@app/repository';
 
-const getUsers = (userId) => {
+export default class UserService {
+  private userRepository: UserRepository;
 
-  return {
-    "id": "123",
-    "name":"SKB"
-  }  
+  public constructor(userRepository:UserRepository) {
+    this.userRepository = userRepository;
+  }
 
+  public getUsers = async () => {
+    return await this.userRepository.getUser();
+  }
+  
 }
 
-export {
-  getUsers
-}
