@@ -4,7 +4,9 @@ import { Routes } from '@app/routes';
 import expressRequestId from 'express-request-id';
 const RequestId = expressRequestId();
 import * as bodyParser from 'body-parser';
-
+import swaggerJSDoc from 'swagger-jsdoc';
+import swaggerUi from 'swagger-ui-express';
+import swaggerSpec from '../swaggerDef';
 
 export default class App {
 
@@ -15,7 +17,6 @@ export default class App {
     this.app = express();
     this.config();
     this.routes.routes(this.app);
-
   }
 
   private config(): void {
@@ -23,5 +24,9 @@ export default class App {
     this.app.use(morgan('dev'));
   }
 
+  private swaggerSetup(): void {
+
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+}
 
 }
