@@ -39,7 +39,7 @@ export default class App {
       basePath: '/'
     };
 
-    const swaggerSpec = swaggerJSDoc(options);
+    // const swaggerSpec = swaggerJSDoc(options);
     // this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 
