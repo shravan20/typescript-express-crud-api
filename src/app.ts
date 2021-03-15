@@ -6,6 +6,7 @@ const RequestId = expressRequestId();
 import * as bodyParser from 'body-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 // import options from './swaggerDef';
 
 export default class App {
@@ -21,23 +22,29 @@ export default class App {
   }
 
   private config(): void {
-    this.app.use(bodyParser.json());
+    this.app.use(express.json());
     this.app.use(morgan('dev'));
+    this.app.use(cors());
   }
 
   private swaggerSetup(): void {
 
-    let options = {
-      info: {
-          // API informations (required)
+    let swaggerDefinition = {
+      info: { // API information (required)
           title: 'Node-Typescript API', // Title (required)
           version: '1.0.0', // Version (required)
-          description: 'A sample API', // Description (optional)
+          description: 'A UserMgmt API', // Description (optional)
       },
-      host: 'http://localhost:4040/',
-      apis: ['./controller/user.ts']
+      // basePath: '/',
+      host: 'localhost:4040/',
+      swagger: '2.0',
     };
-    console.log(options);
+
+    let options = {
+      swaggerDefinition,
+      apis: ['./**/*.ts']
+    }
+
     const swaggerSpec = swaggerJSDoc(options);
     this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
