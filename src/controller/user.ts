@@ -11,20 +11,20 @@ export class UserController {
 
 /**
  * @swagger
- * 
+ *
  * /api/v1/user:
  *   get:
- *     summary: Retrieve a list of JSONPlaceholder users
- *     description: Retrieve a list of users from JSONPlaceholder. Can be used to populate a list of fake users when prototyping or testing an API.
+ *     summary: Retrieve a list of users
+ *     description: Get Users Data
  *     consumes:
  *      - application/json
  *     produces:
  *      - application/json
  *     responses:
  *      200:
- *       description: ok 
+ *       description: ok
  */
-public getUsers = async (req:Request,res:Response,next:NextFunction) => {
+public getUsers = async (req: Request, res: Response, next: NextFunction) => {
     res.status(200).send(await this.userService.getUsers());
   }
 

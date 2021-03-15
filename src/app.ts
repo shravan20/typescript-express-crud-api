@@ -27,21 +27,25 @@ export default class App {
 
   private swaggerSetup(): void {
 
-    let options = {
-      "openapi": "3.0.0",
-      info: {
-          // API informations (required)
+    let swaggerDefinition = {
+      openapi: "3.0.0",
+      info: { // API information (required)
           title: 'Node-Typescript API', // Title (required)
-          version: '2.0', // Version (required)
-          description: 'A sample API', // Description (optional)
+          version: '1.0.0', // Version (required)
+          description: 'A UserMgmt API', // Description (optional)
       },
       host: 'http://localhost:4040/',
-      apis: ['./controller/user.ts'],
-      basePath: '/'
+      apis: ['./controller/user.ts']
+      
     };
 
-    // const swaggerSpec = swaggerJSDoc(options);
-    // this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    let options = {
+      swaggerDefinition,
+      apis: ['./controller/user.ts']
+    }
+
+    const swaggerSpec = swaggerJSDoc(options);
+    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 
 }
