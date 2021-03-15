@@ -6,6 +6,7 @@ const RequestId = expressRequestId();
 import * as bodyParser from 'body-parser';
 import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
+import cors from 'cors';
 // import options from './swaggerDef';
 
 export default class App {
@@ -23,6 +24,7 @@ export default class App {
   private config(): void {
     this.app.use(express.json());
     this.app.use(morgan('dev'));
+    this.app.use(cors());
   }
 
   private swaggerSetup(): void {
@@ -34,14 +36,13 @@ export default class App {
           description: 'A UserMgmt API', // Description (optional)
       },
       // basePath: '/',
-      host: 'http://localhost:4040/',
-      apis: ['./controller/user.ts']
-      
+      host: 'localhost:4040/',
+      swagger: '2.0',
     };
 
     let options = {
       swaggerDefinition,
-      apis: ['./controller/*.ts']
+      apis: ['./**/*.ts']
     }
 
     const swaggerSpec = swaggerJSDoc(options);
