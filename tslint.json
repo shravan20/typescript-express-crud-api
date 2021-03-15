@@ -1,14 +1,28 @@
 {
-    "extends": "tslint:recommended",
+    "extends": ["tslint:recommended", "tslint-clean-code"],
     "rules": {
         "member-ordering": false,
         "object-literal-sort-keys": false,
         "ordered-imports": false,
-        "quotemark": [true, "single"]
+        "no-commented-out-code": true,
+        "quotemark": [
+        true,
+        "single",
+        "jsx-double",
+        "avoid-escape"
+        ],
+        "trailing-comma": [
+        true,
+        {
+            "multiline": "always",
+            "singleline": "never"
+        }
+        ]
     },
     "linterOptions": {
         "exclude": [
             "./node_modules/**"
         ]
-    }
+    },
+    "jsRules": true
 }

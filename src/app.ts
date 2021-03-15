@@ -31,15 +31,16 @@ export default class App {
       info: {
           // API informations (required)
           title: 'Node-Typescript API', // Title (required)
-          version: '1.0.0', // Version (required)
+          version: '1.0.1', // Version (required)
           description: 'A sample API', // Description (optional)
       },
       host: 'http://localhost:4040/',
-      apis: ['./controller/user.ts']
+      apis: ['./controller/user.ts'],
+      basePath: '/'
     };
-    console.log(options);
+
     const swaggerSpec = swaggerJSDoc(options);
-    this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+    // this.app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 }
 
 }

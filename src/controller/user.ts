@@ -11,6 +11,7 @@ export class UserController {
 
 /**
  * @swagger
+ * 
  * /api/v1/user:
  *   get:
  *     summary: Retrieve a list of JSONPlaceholder users
