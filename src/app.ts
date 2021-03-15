@@ -28,10 +28,11 @@ export default class App {
   private swaggerSetup(): void {
 
     let options = {
+      "openapi": "3.0.0",
       info: {
           // API informations (required)
           title: 'Node-Typescript API', // Title (required)
-          version: '1.0.1', // Version (required)
+          version: '2.0', // Version (required)
           description: 'A sample API', // Description (optional)
       },
       host: 'http://localhost:4040/',
