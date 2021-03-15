@@ -21,19 +21,19 @@ export default class App {
   }
 
   private config(): void {
-    this.app.use(bodyParser.json());
+    this.app.use(express.json());
     this.app.use(morgan('dev'));
   }
 
   private swaggerSetup(): void {
 
     let swaggerDefinition = {
-      openapi: "3.0.0",
       info: { // API information (required)
           title: 'Node-Typescript API', // Title (required)
           version: '1.0.0', // Version (required)
           description: 'A UserMgmt API', // Description (optional)
       },
+      // basePath: '/',
       host: 'http://localhost:4040/',
       apis: ['./controller/user.ts']
       
@@ -41,7 +41,7 @@ export default class App {
 
     let options = {
       swaggerDefinition,
-      apis: ['./controller/user.ts']
+      apis: ['./controller/*.ts']
     }
 
     const swaggerSpec = swaggerJSDoc(options);
